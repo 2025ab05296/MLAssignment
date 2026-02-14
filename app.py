@@ -79,11 +79,11 @@ if uploaded_file:
     st.write(df.head())
 
     # Ensure correct target column
-    if "target" not in df.columns:
-        st.error("Uploaded CSV must contain 'target' column.")
+    if "Heart Disease" not in df.columns:
+        st.error("Uploaded CSV must contain 'Heart Disease' column.")
     else:
-        X = df.drop("target", axis=1)
-        y_true = df["target"]
+        X = df.drop("Heart Disease", axis=1)
+        y_true = df["Heart Disease"]
 
         # Convert categorical labels if needed
         if y_true.dtype == object:

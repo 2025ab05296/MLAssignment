@@ -3,6 +3,7 @@ import pandas as pd
 import joblib
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 from sklearn.metrics import (
     accuracy_score,
     roc_auc_score,
@@ -13,19 +14,30 @@ from sklearn.metrics import (
     confusion_matrix
 )
 
-st.write("App Started Successfully")
+# ===============================
+# Page Configuration
+# ===============================
 
-# Page config
-st.set_page_config(page_title="Heart Disease Classification", layout="wide")
+st.set_page_config(
+    page_title="Heart Disease Classification",
+    layout="wide"
+)
 
 st.title("🫀 Heart Disease Classification App")
+st.write(
+    "Upload a test dataset (CSV) and evaluate different trained machine learning models."
+)
 
-st.write("Upload test dataset (CSV) and select a trained model to evaluate performance.")
+# ===============================
+# Load Scaler
+# ===============================
 
-# Load scaler
 scaler = joblib.load("model/scaler.pkl")
 
-# Model selection
+# ===============================
+# Model Selection
+# ===============================
+
 model_choice = st.selectbox(
     "Select Model",
     [
@@ -38,9 +50,8 @@ model_choice = st.selectbox(
     ]
 )
 
-# Map model names to filenames
 model_files = {
-    "Logistic Regression": "model/logistic.pkl",
+    "Logistic Regression": "model/logistic_regression.pkl",
     "Decision Tree": "model/decision_tree.pkl",
     "KNN": "model/knn.pkl",
     "Naive Bayes": "model/naive_bayes.pkl",
@@ -48,19 +59,33 @@ model_files = {
     "XGBoost": "model/xgboost.pkl"
 }
 
-uploaded_file = st.file_uploader("Upload Test CSV File", type=["csv"])
+# ===============================
+# File Upload
+# ===============================
+
+uploaded_file = st.file_uploader(
+    "Upload Test CSV File",
+    type=["csv"]
+)
+
+# ===============================
+# Prediction Section
+# ===============================
 
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
 
-    # Check if Heart Disease exists
-    if "Heart Disease" not in df.columns:
-        st.error("Uploaded CSV must contain 'Heart Disease' column.")
-    else:
-        X = df.drop("Heart Disease", axis=1)
-        y_true = df["Heart Disease"]
+    st.subheader("🔍 Dataset Preview")
+    st.write(df.head())
 
-        # Convert text labels if needed
+    # Ensure correct target column
+    if "target" not in df.columns:
+        st.error("Uploaded CSV must contain 'target' column.")
+    else:
+        X = df.drop("target", axis=1)
+        y_true = df["target"]
+
+        # Convert categorical labels if needed
         if y_true.dtype == object:
             y_true = y_true.map({"Absence": 0, "Presence": 1})
 
@@ -75,12 +100,15 @@ if uploaded_file:
         y_pred = model.predict(X_processed)
 
         if hasattr(model, "predict_proba"):
-            y_prob = model.predict_proba(X_processed)[:,1]
+            y_prob = model.predict_proba(X_processed)[:, 1]
             auc = roc_auc_score(y_true, y_prob)
         else:
             auc = 0
 
+        # ===============================
         # Metrics
+        # ===============================
+
         accuracy = accuracy_score(y_true, y_pred)
         precision = precision_score(y_true, y_pred)
         recall = recall_score(y_true, y_pred)
@@ -100,14 +128,33 @@ if uploaded_file:
         col3.metric("F1 Score", f"{f1:.3f}")
         col3.metric("MCC", f"{mcc:.3f}")
 
-        # Confusion Matrix
+        # ===============================
+        # Confusion Matrix (Smaller + Centered)
+        # ===============================
+
         st.subheader("📌 Confusion Matrix")
 
         cm = confusion_matrix(y_true, y_pred)
 
-        fig, ax = plt.subplots()
-        sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", ax=ax)
-        ax.set_xlabel("Predicted")
-        ax.set_ylabel("Actual")
+        fig, ax = plt.subplots(figsize=(4, 4))
 
-        st.pyplot(fig)
+        sns.heatmap(
+            cm,
+            annot=True,
+            fmt="d",
+            cmap="Blues",
+            cbar=False,
+            square=True,
+            annot_kws={"size": 12},
+            ax=ax
+        )
+
+        ax.set_xlabel("Predicted", fontsize=10)
+        ax.set_ylabel("Actual", fontsize=10)
+        ax.tick_params(labelsize=10)
+
+        # Centering the matrix
+        col_center = st.columns([1, 2, 1])
+        with col_center[1]:
+            st.pyplot(fig)
+

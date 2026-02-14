@@ -51,7 +51,7 @@ model_choice = st.selectbox(
 )
 
 model_files = {
-    "Logistic Regression": "model/logistic_regression.pkl",
+    "Logistic Regression": "model/logistic.pkl",
     "Decision Tree": "model/decision_tree.pkl",
     "KNN": "model/knn.pkl",
     "Naive Bayes": "model/naive_bayes.pkl",

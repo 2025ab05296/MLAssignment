@@ -29,6 +29,23 @@ st.write(
 )
 
 # ===============================
+# Download Sample Dataset Section
+# ===============================
+
+st.markdown("### 📥 Sample Dataset")
+
+sample_csv_url = "https://raw.githubusercontent.com/2025ab05296/MLAssignment/main/Heart.csv"
+
+st.markdown(
+    f"""
+    👉 Don't have a dataset?  
+    [Click here to download the sample Heart Disease dataset]({sample_csv_url})
+    """
+)
+
+st.divider()
+
+# ===============================
 # Load Scaler
 # ===============================
 
@@ -153,8 +170,6 @@ if uploaded_file:
         ax.set_ylabel("Actual", fontsize=10)
         ax.tick_params(labelsize=10)
 
-        # Centering the matrix
         col_center = st.columns([1, 2, 1])
         with col_center[1]:
             st.pyplot(fig)
-

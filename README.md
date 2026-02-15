@@ -129,6 +129,6 @@ Then open:
 http://localhost:8501
 
 ---
+Stramlit URL: https://2025ab05296-ml.streamlit.app/
 ---
 
-# End-to-End Machine Learning Workflow Completed

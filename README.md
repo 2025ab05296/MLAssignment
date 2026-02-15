@@ -79,7 +79,8 @@ The original target column contained categorical values ("Absence", "Presence") 
 | KNN | 0.796 | 0.875 | 0.724 | 0.875 | 0.792 | 0.606 |
 | Naive Bayes | 0.852 | 0.893 | 0.808 | 0.875 | 0.840 | 0.704 |
 | Random Forest | 0.815 | 0.867 | 0.769 | 0.833 | 0.800 | 0.630 |
-| XGBoost | 0.833 | 0.864 | 0.800 | 0.833 | 0.816 | 0.664 |
+| XGBoost | 0.815 | 0.882 | 0.769 | 0.833 | 0.800 | 0.630 |
+
 ---
 
 ## 🔍 Observations on Model Performance

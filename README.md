@@ -1,4 +1,4 @@
-# 🫀 Heart Disease Prediction using Machine Learning
+<img width="468" height="14" alt="image" src="https://github.com/user-attachments/assets/e45165e0-3675-443a-bced-21bfedf37e90" /># 🫀 Heart Disease Prediction using Machine Learning
 ---
 
 ## 📌 Problem Statement
@@ -76,10 +76,10 @@ The original target column contained categorical values ("Absence", "Presence") 
 |-----------|----------|------|-----------|--------|----------|------|
 | Logistic Regression | 0.852 | 0.899 | 0.786 | 0.917 | 0.846 | 0.713 |
 | Decision Tree | 0.796 | 0.800 | 0.741 | 0.833 | 0.784 | 0.596 |
-| KNN | 0.796 | 0.875 | 0.724 | 0.875 | 0.792 | 0.606 |
+| KNN | 0.816 | 0.875 | 0.724 | 0.875 | 0.792 | 0.606 |
 | Naive Bayes | 0.852 | 0.893 | 0.808 | 0.875 | 0.840 | 0.704 |
 | Random Forest | 0.815 | 0.867 | 0.769 | 0.833 | 0.800 | 0.630 |
-| XGBoost | 0.815 | 0.882 | 0.769 | 0.833 | 0.800 | 0.630 |
+| XGBoost | 0.824 | 0.882 | 0.779 | 0.853 | 0.810 | 0.640 |
 
 ---
 

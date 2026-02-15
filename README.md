@@ -1,4 +1,4 @@
-<img width="468" height="14" alt="image" src="https://github.com/user-attachments/assets/e45165e0-3675-443a-bced-21bfedf37e90" /># 🫀 Heart Disease Prediction using Machine Learning
+# 🫀 Heart Disease Prediction using Machine Learning
 ---
 
 ## 📌 Problem Statement

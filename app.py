@@ -32,13 +32,11 @@ st.write(
 # Download Sample Dataset Section
 # ===============================
 
-st.markdown("### 📥 Sample Dataset")
-
 sample_csv_url = "https://raw.githubusercontent.com/2025ab05296/MLAssignment/main/Heart.csv"
 
 st.markdown(
     f"""
-    👉 Don't have a dataset?  
+    📥 Don't have a dataset?  
     [Click here to download the sample Heart Disease dataset]({sample_csv_url})
     """
 )

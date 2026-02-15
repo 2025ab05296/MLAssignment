@@ -72,15 +72,14 @@ The original target column contained categorical values ("Absence", "Presence") 
 
 ## 📊 Model Comparison Table
 
-| ML Model | Accuracy | AUC | Precision | Recall | F1 | MCC |
-|-----------|----------|------|-----------|--------|-----|------|
-| Logistic Regression | 0.852 | 0.899 | 0.857 | 0.835 | 0.846 | 0.713 |
-| Decision Tree | 0.796 | 0.800 | 0.800 | 0.769 | 0.784 | 0.596 |
-| KNN | 0.796 | 0.875 | 0.808 | 0.778 | 0.792 | 0.606 |
-| Naive Bayes | 0.852 | 0.893 | 0.857 | 0.824 | 0.840 | 0.704 |
-| Random Forest | 0.815 | 0.867 | 0.815 | 0.786 | 0.800 | 0.630 |
-| XGBoost | 0.815 | 0.882 | 0.815 | 0.786 | 0.800 | 0.630 |
-
+| ML Model | Accuracy | AUC | Precision | Recall | F1 Score | MCC |
+|-----------|----------|------|-----------|--------|----------|------|
+| Logistic Regression | 0.852 | 0.899 | 0.786 | 0.917 | 0.846 | 0.713 |
+| Decision Tree | 0.796 | 0.800 | 0.741 | 0.833 | 0.784 | 0.596 |
+| KNN | 0.796 | 0.875 | 0.724 | 0.875 | 0.792 | 0.606 |
+| Naive Bayes | 0.852 | 0.893 | 0.808 | 0.875 | 0.840 | 0.704 |
+| Random Forest | 0.815 | 0.867 | 0.769 | 0.833 | 0.800 | 0.630 |
+| XGBoost | 0.833 | 0.864 | 0.800 | 0.833 | 0.816 | 0.664 |
 ---
 
 ## 🔍 Observations on Model Performance
